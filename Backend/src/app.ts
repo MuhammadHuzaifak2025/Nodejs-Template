@@ -1,12 +1,12 @@
-import express from "express";
-import cookieparser from "cookie-parser";
+import express, { Application } from "express";
+import cookieParser from "cookie-parser";
 import cors from "cors";
 import {
   ErrorHandlerMiddleWare,
   ServerErrorMiddleWare,
-} from "./middlewares/globalerror.js";
+} from "./middlewares/GlobalError";
 
-const app = express();
+const app: Application = express();
 
 app.use(
   cors({
@@ -29,7 +29,7 @@ app.use(
 
 app.use(express.static("public"));
 
-app.use(cookieparser());
+app.use(cookieParser());
 
 app.use(ErrorHandlerMiddleWare);
 
